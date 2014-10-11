@@ -3,7 +3,7 @@
 <head>
 	<meta charset='utf-8'>
 	<title>Air force </title>
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
 <body>
 	<div id='header'>
@@ -13,12 +13,12 @@
 		<div style="padding:20px">
 			<div class="column__button">Circular Info</div>
 			<div class="column__button">Employee Details</div>
-			<div class="column__button">Search By Group No</div>
-			<div class="column__button">Eearch By Employee Id</div>
+			<div class="column__button">Search By Circular No</div>
+			<div class="column__button">Search By Employee Id</div>
 		</div>
 		<br/><br/>		
 		<div id="display_show_hide">
-			<div id="diplay_circular_no">
+			<div id="diplay_circular_no" class="dynamic_div">
 				<div class="data_table">
 					<div class="input_pair">
 						<div>Circular Number</div>
@@ -54,10 +54,130 @@
 					</div>		
 					<div>
 						<div>Type</div>
-						<div><input type="text"></div>
+						<div><select><option>Type</option></select></div>
 					</div>		
 				</div>	
+			</div>
+			
+			<div id="diplay_employee_details" class="dynamic_div">
+				<div class="data_table">
+					<div class="input_pair">
+						<div>First Name</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Last Name</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Service Number</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Membership Number</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Address 1</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Address 2</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Street</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>City</div>
+						<div><input type="text"></div>
+					</div>		
+					<div class="input_pair">
+						<div>State</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Pin Code</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Mobile</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Office Phone</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Residential Phone</div>
+						<div><input type="text"></div>
+					</div>		
+					<div class="input_pair">
+						<div>Email Id</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Trade</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Date of Birth</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Date of Expiry</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Date of Enrollment</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>Awards</div>
+						<div><input type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div>TN-Membership No</div>
+						<div><input type="text"></div>
+					</div>
+				</div>
 			</div>	
+			
+			<div id="search_circular_no" class="dynamic_div">
+				<div class="data_table">
+					<div class="input_pair">
+						<div>Circular Number</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Rank</div>
+						<div><select><option>1</option></select></div>
+					</div>
+					<div class="input_pair">
+						<div>Group</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Service Type</div>
+						<div><select><option>1</option></select></div>
+					</div>		
+				</div>
+			</div>	
+
+			<div id="search_employee_id" class="dynamic_div">
+				<div class="data_table">
+					<div class="input_pair">
+						<div>Service Number</div>
+						<div><input type="text"></div>
+					</div>
+					<div class="input_pair">
+						<div>Membership Number</div>
+						<div><select><option>1</option></select></div>
+					</div>
+				</div>
+			</div>				
+			
 		</div>
 	</div>
 	<div id='footer'><img src="images/logo.jpg"></div>
