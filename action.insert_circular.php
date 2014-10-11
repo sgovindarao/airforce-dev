@@ -1,4 +1,5 @@
 <?php
+
 // Comment below two lines to hide errors
 ini_set("display_errors", "1");
 error_reporting(E_ALL);
@@ -7,7 +8,7 @@ error_reporting(E_ALL);
 $circularNo = $_GET['circularNo'];
 $circular_issue_date = $_GET['circular_issue_date'];
 $circular_effective_date = $_GET['circular_effective_date'];
-$circular_status = $_GET['circular_status']; //may be it will be one
+$circular_status = $_GET['circular_status'];
 
 $rank = $_GET['rank'];
 $group = $_GET['group'];
@@ -56,7 +57,8 @@ require_once "vars/dbvars.php";
 
 		$mysqli->query($query_afpms_circular_amount_info);
 
-		$mysqli->commit();		
+		$mysqli->commit();	
+
 	}
 	catch(Exception $error)
 	{
