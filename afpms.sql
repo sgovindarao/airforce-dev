@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2014 at 08:07 PM
+-- Generation Time: Oct 11, 2014 at 10:30 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -34,6 +34,16 @@ CREATE TABLE IF NOT EXISTS `afpms_circular_amount_info` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `afpms_circular_amount_info`
+--
+
+INSERT INTO `afpms_circular_amount_info` (`id`, `afpms_circular_info_id`, `afpms_circular_categorization_info_id`, `amount`) VALUES
+(1, 1, 1, 10000),
+(2, 1, 2, 10101),
+(3, 1, 5, 20000),
+(4, 1, 10, 24100);
+
 -- --------------------------------------------------------
 
 --
@@ -48,7 +58,8 @@ CREATE TABLE IF NOT EXISTS `afpms_circular_categorization_info` (
   `service_type` enum('1','2') NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `rank` (`rank`,`group_id`,`service_period`,`service_type`)
+  UNIQUE KEY `rank` (`rank`,`group_id`,`service_period`,`service_type`),
+  UNIQUE KEY `rank_2` (`rank`,`group_id`,`service_period`,`service_type`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
@@ -117,8 +128,34 @@ CREATE TABLE IF NOT EXISTS `afpms_circular_info` (
   `circular_status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `circular_no_UNIQUE` (`circular_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
+--
+-- Dumping data for table `afpms_circular_info`
+--
+
+INSERT INTO `afpms_circular_info` (`id`, `circular_no`, `circular_issue_date`, `circular_effective_date`, `circular_status`) VALUES
+(1, 502, '2013-10-09 00:00:00', '2013-10-23 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `afpms_circular_info_all_view`
+--
+CREATE TABLE IF NOT EXISTS `afpms_circular_info_all_view` (
+`CircularID` bigint(19) unsigned
+,`CategorizationID` bigint(19) unsigned
+,`circular_no` bigint(19) unsigned
+,`circular_issue_date` datetime
+,`circular_effective_date` datetime
+,`amount` bigint(19) unsigned
+,`circular_status` tinyint(1)
+,`rank` varchar(20)
+,`group_id` int(10)
+,`service_period` float unsigned
+,`service_type` varchar(10)
+,`group_name` varchar(49)
+);
 -- --------------------------------------------------------
 
 --
@@ -139,8 +176,40 @@ CREATE TABLE IF NOT EXISTS `afpms_personal_info` (
   `date_of_birth` datetime DEFAULT NULL,
   `date_of_expiry` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
+--
+-- Dumping data for table `afpms_personal_info`
+--
+
+INSERT INTO `afpms_personal_info` (`id`, `first_name`, `last_name`, `address1`, `address2`, `street`, `city`, `state`, `pincode`, `email`, `date_of_birth`, `date_of_expiry`) VALUES
+(1, 'Varaprasad', 'Killampalli', 'address1', 'address2', 'address3', 'city', 'state', 601201, 'email@email.com', '2014-10-01 00:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `afpms_personal_info_all_view`
+--
+CREATE TABLE IF NOT EXISTS `afpms_personal_info_all_view` (
+`id` bigint(19) unsigned
+,`first_name` varchar(32)
+,`last_name` varchar(32)
+,`address1` varchar(32)
+,`address2` varchar(32)
+,`street` varchar(32)
+,`city` varchar(45)
+,`state` varchar(32)
+,`pincode` mediumint(8) unsigned
+,`email` varchar(50)
+,`date_of_birth` datetime
+,`date_of_expiry` datetime
+,`service_no` int(11)
+,`membership_no` int(11)
+,`awards` varchar(45)
+,`tn_membership_no` bigint(19) unsigned
+,`trade` varchar(20)
+,`CategorizationID` bigint(19) unsigned
+);
 -- --------------------------------------------------------
 
 --
@@ -180,7 +249,14 @@ CREATE TABLE IF NOT EXISTS `afpms_personal_service_identity_info` (
   `service_no` int(11) NOT NULL,
   `membership_no` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `afpms_personal_service_identity_info`
+--
+
+INSERT INTO `afpms_personal_service_identity_info` (`id`, `afpms_personal_info_id`, `service_no`, `membership_no`) VALUES
+(1, 1, 502, 1231213);
 
 -- --------------------------------------------------------
 
@@ -196,7 +272,32 @@ CREATE TABLE IF NOT EXISTS `afpms_personal_service_info` (
   `tn_membership_no` bigint(19) unsigned DEFAULT NULL,
   `trade` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `afpms_personal_service_info`
+--
+
+INSERT INTO `afpms_personal_service_info` (`id`, `afpms_personal_info_id`, `afpms_circular_categorization_info_id`, `awards`, `tn_membership_no`, `trade`) VALUES
+(1, 1, 1, 'TN,AP,KL', 12121, 'TN');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `afpms_circular_info_all_view`
+--
+DROP TABLE IF EXISTS `afpms_circular_info_all_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `afpms_circular_info_all_view` AS select `a`.`afpms_circular_info_id` AS `CircularID`,`a`.`afpms_circular_categorization_info_id` AS `CategorizationID`,`b`.`circular_no` AS `circular_no`,`b`.`circular_issue_date` AS `circular_issue_date`,`b`.`circular_effective_date` AS `circular_effective_date`,`a`.`amount` AS `amount`,`b`.`circular_status` AS `circular_status`,`c`.`rank` AS `rank`,`c`.`group_id` AS `group_id`,`c`.`service_period` AS `service_period`,elt(`c`.`service_type`,'Retirement','Family') AS `service_type`,`d`.`group_name` AS `group_name` from (((`afpms_circular_amount_info` `a` join `afpms_circular_info` `b`) join `afpms_circular_categorization_info` `c`) join `afpms_circular_group_info` `d`) where ((`a`.`afpms_circular_info_id` = `b`.`id`) and (`a`.`afpms_circular_categorization_info_id` = `c`.`id`) and (`c`.`group_id` = `d`.`id`));
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `afpms_personal_info_all_view`
+--
+DROP TABLE IF EXISTS `afpms_personal_info_all_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `afpms_personal_info_all_view` AS select `a`.`id` AS `id`,`a`.`first_name` AS `first_name`,`a`.`last_name` AS `last_name`,`a`.`address1` AS `address1`,`a`.`address2` AS `address2`,`a`.`street` AS `street`,`a`.`city` AS `city`,`a`.`state` AS `state`,`a`.`pincode` AS `pincode`,`a`.`email` AS `email`,`a`.`date_of_birth` AS `date_of_birth`,`a`.`date_of_expiry` AS `date_of_expiry`,`b`.`service_no` AS `service_no`,`b`.`membership_no` AS `membership_no`,`c`.`awards` AS `awards`,`c`.`tn_membership_no` AS `tn_membership_no`,`c`.`trade` AS `trade`,`c`.`afpms_circular_categorization_info_id` AS `CategorizationID` from ((`afpms_personal_info` `a` join `afpms_personal_service_identity_info` `b`) join `afpms_personal_service_info` `c`) where ((`a`.`id` = `b`.`afpms_personal_info_id`) and (`a`.`id` = `c`.`afpms_personal_info_id`));
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
