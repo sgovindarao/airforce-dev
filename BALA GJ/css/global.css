@@ -1,7 +1,7 @@
 	*      {margin:0; padding:0;}
 	body   {background:#fff; position:absolute; width:100%; height:100%;font-family: Sans-serif;}
 	#main  {background:#fff; height:100%; padding:70px 0 22px; box-sizing:border-box;}
-	#head  {background:#fff; position:absolute; width:100%; height:70px;border-bottom:1px solid #ccc;background-color:#fff}
+	#head  {background:#fff; position:absolute; width:100%; height:70px;border-bottom:1px solid #ccc;}
 	#left  {background:#fff; float:left; width:180px; height:100%; overflow:hidden;border-right:1px solid #ccc;}
 	#right {background:#fff; height:100%; overflow:hidden;}
 	#foot  {background:#fff; position:absolute; bottom:0; width:100%; height:22px;border-top:1px solid #ccc;}
@@ -13,9 +13,10 @@
 .column__button {
   display: inline;
    padding:10px;
-   border:1px solid blue;
+   border:1px solid #A3821F;
    color:#fff;
-   background-color: #57809E;
+   font-weight:bold;
+   background-color: #D9A509;
   //  background: url(img_flwr.gif);
    // background-size: 80px 60px;
    // background-repeat: no-repeat;
