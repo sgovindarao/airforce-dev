@@ -50,9 +50,9 @@ DROP TABLE IF EXISTS `afpms_circular_categorization_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `afpms_circular_categorization_info` (
-  `id` bigint(19) unsigned NOT NULL,
+  `id` bigint(19) unsigned NOT NULL AUTO_INCREMENT,
   `rank` varchar(20) NOT NULL,
-  `group` varchar(20) NOT NULL,
+  `group_id` int(10) NOT NULL,
   `service_period` float unsigned NOT NULL,
   `service_type` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -67,6 +67,31 @@ CREATE TABLE `afpms_circular_categorization_info` (
 LOCK TABLES `afpms_circular_categorization_info` WRITE;
 /*!40000 ALTER TABLE `afpms_circular_categorization_info` DISABLE KEYS */;
 /*!40000 ALTER TABLE `afpms_circular_categorization_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `afpms_circular_group_info`
+--
+
+DROP TABLE IF EXISTS `afpms_circular_group_info`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `afpms_circular_group_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `group_name` varchar(49) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `afpms_circular_group_info`
+--
+
+LOCK TABLES `afpms_circular_group_info` WRITE;
+/*!40000 ALTER TABLE `afpms_circular_group_info` DISABLE KEYS */;
+INSERT INTO `afpms_circular_group_info` VALUES (1,1,'OTHER THAN AMC/ADC/RVC/TA/MNS'),(2,2,'FROM AMC/ADC/RVC OTHER'),(3,3,'OFFICERS OF TERRITORIAL ARMY'),(4,4,'OFFICERS OF MILITARY NURSING SERVICE');
+/*!40000 ALTER TABLE `afpms_circular_group_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -239,4 +264,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-11 19:53:21
+-- Dump completed on 2014-10-11 22:37:20
