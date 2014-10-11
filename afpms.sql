@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2014 at 07:43 PM
+-- Generation Time: Oct 11, 2014 at 08:07 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -47,21 +47,26 @@ CREATE TABLE IF NOT EXISTS `afpms_circular_categorization_info` (
   `service_period` float unsigned NOT NULL,
   `service_type` enum('1','2') NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `rank` (`rank`,`group_id`,`service_period`,`service_type`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `afpms_circular_categorization_info`
 --
 
 INSERT INTO `afpms_circular_categorization_info` (`id`, `rank`, `group_id`, `service_period`, `service_type`) VALUES
+(17, 'AIR CMDE', 1, 11, '1'),
+(18, 'AIR CMDE', 1, 11, '2'),
+(19, 'AIR CMDE', 2, 11, '1'),
+(20, 'AIR CMDE', 2, 11, '2'),
 (1, 'AIR MSHL', 1, 10, '1'),
-(2, 'AIR MSHL', 2, 10, '1'),
-(3, 'AIR MSHL', 3, 10, '1'),
-(4, 'AIR MSHL', 4, 10, '1'),
 (5, 'AIR MSHL', 1, 10, '2'),
+(2, 'AIR MSHL', 2, 10, '1'),
 (6, 'AIR MSHL', 2, 10, '2'),
+(3, 'AIR MSHL', 3, 10, '1'),
 (7, 'AIR MSHL', 3, 10, '2'),
+(4, 'AIR MSHL', 4, 10, '1'),
 (8, 'AIR MSHL', 4, 10, '2'),
 (9, 'AVM', 1, 10.5, '1'),
 (10, 'AVM', 1, 10.5, '2'),
@@ -71,10 +76,9 @@ INSERT INTO `afpms_circular_categorization_info` (`id`, `rank`, `group_id`, `ser
 (14, 'AVM', 3, 10.5, '2'),
 (15, 'AVM', 4, 10.5, '1'),
 (16, 'AVM', 4, 10.5, '2'),
-(17, 'AIR CMDE', 1, 11, '1'),
-(18, 'AIR CMDE', 1, 11, '2'),
-(19, 'AIR CMDE', 2, 11, '1'),
-(20, 'AIR CMDE', 2, 11, '2');
+(23, 'GP CAPT', 1, 11.5, '1'),
+(24, 'GP CAPT', 1, 11.5, '2'),
+(25, 'GP CAPT', 2, 11.5, '1');
 
 -- --------------------------------------------------------
 
