@@ -1,5 +1,9 @@
 <?php
 
+/**
+*  @return status as 1 in case of success 
+*  @return status as 0 in case of failure
+**/
 // Comment below two lines to hide errors
 ini_set("display_errors", "1");
 error_reporting(E_ALL);
@@ -57,8 +61,10 @@ require_once "vars/dbvars.php";
 
 		$mysqli->query($query_afpms_circular_amount_info);
 
-		$mysqli->commit();	
+		$mysqli->commit();
 
+		echo json_encode(array('status' => 1, 'usrErr'=> 'Successfully inserted the circular forms'));	
+		$mysqli->close();
 	}
 	catch(Exception $error)
 	{
@@ -69,10 +75,10 @@ require_once "vars/dbvars.php";
 			echo json_encode(array('status' => 0, 'usrErr'=> 'Sorry, something went wrong.. Please contact the developers to have a look?', 'msg'=>$error->getMessage()));
 		}	
 		if($error->getCode() == 3) {
-			echo array('status' => 0, 'usrErr'=> 'Sorry, we could not connect to the Database at the moment. Please contact the developers to have a look?', 'msg'=>$error->getMessage());
+			echo json_encode(array('status' => 0, 'usrErr'=> 'Sorry, we could not connect to the Database at the moment. Please contact the developers to have a look?', 'msg'=>$error->getMessage()));
 		}
 		if($error->getCode() == 4) {
-			echo array('status' => 0, 'usrErr'=> 'Sorry, something went wrong.. Please contact the developers to have a look?', 'msg'=>$error->getMessage());
+			echo json_encode(array('status' => 0, 'usrErr'=> 'Sorry, something went wrong.. Please contact the developers to have a look?', 'msg'=>$error->getMessage()));
 		}
 
 		$mysqli->close();

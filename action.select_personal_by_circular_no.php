@@ -1,5 +1,8 @@
 <?php
-// Comment below two lines to hide errors
+/**
+*  @return status as 1 in case of success 
+*  @return status as 0 in case of failure
+**/
 ini_set("display_errors", "1");
 error_reporting(E_ALL);
 // ---
@@ -11,7 +14,6 @@ $service_type=(!empty($_GET['service_type']) ? trim($_GET['service_type']) : "")
 
 
 require_once "vars/dbvars.php";
-
 
 
 	try 
@@ -35,9 +37,7 @@ require_once "vars/dbvars.php";
 		}
 
 		if (!empty($service_type )) {
-			//printf($query_search_personal_info_by_cir_id);
 			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id . "and service_type = '$service_type'";
-			//printf($query_search_personal_info_by_cir_id);
 		}
 
 		
@@ -60,6 +60,16 @@ require_once "vars/dbvars.php";
 		
 		$sendArr = array();
 		foreach($resultsArr as $rowNo => $row) {
+			$row['first_name'] = (!empty($row['first_name']) ? $row['first_name'] : array(0));
+			$row['last_name'] = (!empty($row['last_name']) ? $row['last_name'] : array(0));
+			$row['service_no'] = (!empty($row['service_no']) ? $row['service_no'] : array(0));
+			$row['membership_no'] = (!empty($row['membership_no']) ? $row['membership_no'] : array(0));
+			$row['email'] = (!empty($row['email']) ? $row['email'] : array(0));
+			$row['amount'] = (!empty($row['amount']) ? $row['amount'] : array(0));
+			$row['rank'] = (!empty($row['rank']) ? $row['rank'] : array(0));
+			$row['group'] = (!empty($row['group']) ? $row['group'] : array(0));
+			$row['service_type'] = (!empty($row['service_type']) ? $row['service_type'] : array(0));
+
 			$sendArr[] = array(
 			'first_name' => $row['first_name'],
 			'last_name' => $row['last_name'],
@@ -72,31 +82,25 @@ require_once "vars/dbvars.php";
 			'service_type' => $row['service_type'],
 			);
 		}
-	// print_r($sendArr);
+	
 	$sendValues = json_encode($sendArr);
-	echo $sendValues;
-		
+	echo json_encode(array('status' => 1, 'usrErr'=> 'Successfully retrieved circular and veteran details'));
+	$mysqli->close();	
 	}
 	catch(Exception $error)
 	{
-		if($error->getCode() == 1) 
-		{
-			echo "Could not connect to DB :: ".$error->getMessage();
+		if($error->getCode() == 1) {
+			echo json_encode(array('status' => 0, 'usrErr'=> 'Sorry, we could not connect to the Database at the moment. Please contact the developers to have a look?', 'msg'=> $error->getMessage()));
 		}
-		if($error->getCode() == 2) 
-		{
-				echo "No Id present ";
+		if($error->getCode() == 2) {
+			echo json_encode(array('status' => 0, 'usrErr'=> 'Sorry, something went wrong.. Please contact the developers to have a look?', 'msg'=>$error->getMessage()));
 		}	
-		if($error->getCode() == 3) 
-		{
-				echo "no result found ";
+		if($error->getCode() == 3) {
+			echo json_encode(array('status' => 0, 'usrErr'=> 'No results found', 'msg'=>$error->getMessage()));
 		}
-		if($error->getCode() == 4) 
-		{
-				echo "Circular Number is already present ";
-		}
-
+		
+		$mysqli->close();
 
 	}
-	$mysqli->close();
+	
 exit;
