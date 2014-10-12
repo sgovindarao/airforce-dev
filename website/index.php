@@ -13,7 +13,6 @@
       <div id='header' style="background-color:#3190B0;line-height:75px;padding-left:15px;color:#fff">
       <h2>Air Force Veterans Pension Management System</h2>
       </div>
-      <div id="wrapper">
       <div class="pure-menu pure-menu-open pure-menu-horizontal">
           <ul>
               <li><a href="#" class="column__button" data-correspondingDiv="send_circular_no" id="cirInfo">Enter Circular Info</a></li>
@@ -23,6 +22,8 @@
 
           </ul>
       </div>
+
+      <div id="wrapper">
 
 	<br/><br/>		
 	<div id="display_show_hide">
@@ -72,7 +73,7 @@
 					</div>	
 				</form>	
 			</div>
-			<div class="submit_button" data-parentId="send_circular_no">Submit</div>
+			<button class=" pure-button button-success" data-parentId="send_circular_no">Submit</button>
 		</div>
 		
 		<div id="send_employee_details" class="dynamic_div">

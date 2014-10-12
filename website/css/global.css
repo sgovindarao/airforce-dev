@@ -82,3 +82,6 @@ background: none repeat scroll 0 0 !important;
 .pure-menu a, .pure-menu .pure-menu-can-have-children > li:after {
     color: #FFF !important;
 }
+.button-success {
+    background: rgb(223, 117, 20) !important; /* this is a green */
+}
