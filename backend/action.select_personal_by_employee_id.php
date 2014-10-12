@@ -17,14 +17,15 @@ require_once "vars/dbvars.php";
 	try 
 	{
 		$mysqli = new mysqli($host, $username, $password, "afpms");
-		
+
+/*		
 $q = "select * from afpms_personal_service_identity_info where membership_no = 1051";
 if(!$r = $mysqli->query($q)) {
 	throw new Exception(mysqli_error($mysqli), 2);
 }
 print_r($r->fetch_assoc());
 exit;
-
+*/
 		
 		/* check connection */
 		if (mysqli_connect_errno()) {
@@ -34,12 +35,15 @@ exit;
 		$query_search_personal_by_employee_id = "select first_name,last_name,service_no,membership_no,email,amount,rank,group_name,service_type from afpms_circular_info_all_view, afpms_personal_info_all_view where afpms_circular_info_all_view.CategorizationID =afpms_personal_info_all_view.CategorizationID ";
 
 		if (!empty($serviceno )) {
-			$query_search_personal_by_employee_id = $query_search_personal_by_employee_id .  "and service_no = '$serviceno'";
+			$query_search_personal_by_employee_id = $query_search_personal_by_employee_id .  "and afpms_personal_info_all_view.service_no = '$serviceno'";
 		}
 		if (!empty($memberno )) {
-			$query_search_personal_by_employee_id = $query_search_personal_by_employee_id . "and membership_no = '$memberno'";
+			$query_search_personal_by_employee_id = $query_search_personal_by_employee_id . "and afpms_personal_info_all_view.membership_no = '$memberno'";
 		}
 
+        print $query_search_personal_by_employee_id;
+        print "\n";
+        
 		if(!$res_search_personal_by_employee_id = $mysqli->query($query_search_personal_by_employee_id)) {
 			throw new Exception(mysqli_error($mysqli), 2);
 		}

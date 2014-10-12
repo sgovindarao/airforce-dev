@@ -40,19 +40,22 @@ require_once "vars/dbvars.php";
 			$rank = $row['rank'];
 		}*/
         		
-		$query_search_personal_info_by_cir_id = "select first_name,last_name,service_no,membership_no,email,amount,rank,group_name,service_type from afpms_circular_info_all_view, afpms_personal_info_all_view where afpms_circular_info_all_view.CategorizationID =afpms_personal_info_all_view.CategorizationID and afpms_circular_info_all_view.circular_no='$circularNo'";
+		$query_search_personal_info_by_cir_id = "select first_name,last_name,service_no,membership_no,email,amount,rank,group_name,service_type from afpms_circular_info_all_view, afpms_personal_info_all_view where afpms_circular_info_all_view.CategorizationID =afpms_personal_info_all_view.CategorizationID and afpms_circular_info_all_view.circular_no='$circularNo' ";
 
 		if (!empty($rank )) {
-			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id .  "and rank = '$rank'";
+			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id .  "and afpms_circular_info_all_view.rank = '$rank' ";
 		}
 		if (!empty($group )) {
-			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id . "and group_id = '$group'";
+			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id . "and afpms_circular_info_all_view.group_id = '$group' ";
 		}
 
 		if (!empty($service_type )) {
-			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id . "and service_type = '$service_type'";
+			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id . "and afpms_circular_info_all_view.service_type = '$service_type'";
 		}
 
+        print $query_search_personal_info_by_cir_id;
+        print "\n";
+        
         //echo $query_search_personal_info_by_cir_id;
                 
 		if(!$res_search_personal_info_by_cir_id = $mysqli->query($query_search_personal_info_by_cir_id)) {
