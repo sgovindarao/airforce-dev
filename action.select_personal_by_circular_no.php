@@ -29,11 +29,11 @@ require_once "vars/dbvars.php";
         $query_search_circular_rank_info_by_id = "select rank from afpms_circular_rank_info where rank_id='$rank'";
         
         if(!$res_search_circular_rank_info_by_id = $mysqli->query($query_search_circular_rank_info_by_id)) {
-			throw new Exception(mysqli_error($mysqli), 5);
+			throw new Exception(mysqli_error($mysqli), 2);
 		}
 
 		if(mysqli_num_rows($res_search_circular_rank_info_by_id)==0) {
-			throw new Exception(0, 6);
+			throw new Exception(0, 3);
 		}
         
         if($row = $res_search_circular_rank_info_by_id->fetch_assoc()) {            
@@ -108,12 +108,6 @@ require_once "vars/dbvars.php";
 		}	
 		if($error->getCode() == 3) {
 			echo json_encode(array('status' => 0, 'usrErr'=> 'No results found', 'msg'=>$error->getMessage()));
-		}
-		if($error->getCode() == 5) {
-			echo json_encode(array('status' => 1, 'usrErr'=> 'No results found 1', 'msg'=>$error->getMessage()));
-		}
-        if($error->getCode() == 6) {
-			echo json_encode(array('status' => 1, 'usrErr'=> 'No results found 2', 'msg'=>$error->getMessage()));
 		}
 		$mysqli->close();
 
