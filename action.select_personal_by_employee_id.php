@@ -78,7 +78,7 @@ require_once "vars/dbvars.php";
 		}
 	
 	$sendValues = json_encode($sendArr);
-	echo json_encode(array('status' => 1, 'usrErr'=> 'Successfully retrieved circular and veteran details'));
+	echo json_encode(array('status' => 1, 'details'=> $sendValues));
 	$mysqli->close();		
 	}
 	catch(Exception $error)
