@@ -11,25 +11,25 @@
 <body>
 
       <div id='header' style="background-color:#3190B0;line-height:75px;padding-left:15px;color:#fff">
-      <h2>Air Force Veterans Management System</h2>
+      <h2>Air Force Veterans Pension Management System</h2>
       </div>
-
-      <div id="wrapper">
-      <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <div class="pure-menu pure-menu-open pure-menu-horizontal">
           <ul>
               <li><a href="#" class="column__button" data-correspondingDiv="diplay_circular_no" id="cirInfo">Circular Info</a></li>
-              <li><a href="#" class="column__button" data-correspondingDiv="diplay_employee_details" id="empDet">Employee Details</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="diplay_employee_details" id="empDet">Veterans Details</a></li>
               <li><a href="#" class="column__button" data-correspondingDiv="search_circular_no" id="searchByCir">Search By Circular No</a></li>
-              <li><a href="#" class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Employee Id</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Service No / Membership No</a></li>
 
           </ul>
       </div>
+
+      <div id="wrapper">
 	<br/><br/>		
 	<div id="display_show_hide">
 		
 		<div id="diplay_circular_no" class="dynamic_div">
 			<div class="data_table">
-				<form id="form_diplay_circular_no">
+				<form id="form_diplay_circular_no" class="pure-form">
 					<div class="input_pair">
 						<div><label class="">Circular Number</label></div>
 						<div><input name="circularNo" class="" type="text"></div>

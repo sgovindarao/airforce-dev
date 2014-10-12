@@ -1,4 +1,10 @@
-body   {background:#fff;  width:100%; height:100%;font-family: Sans-serif;}
+body   {background:#fff;  width:100%; height:100%;font-family: Sans-serif;
+        background-image: url('../images/flag1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; 
+        background-color:transparent ;
+       }
 	/*#main  {background:#fff; height:100%; padding:70px 0 22px; box-sizing:border-box;}*/
 	/*#head  {background:#fff; position:absolute; width:100%; height:70px;border-bottom:1px solid #ccc;}*/
 	/*#left  {background:#fff; float:left; width:180px; height:100%; overflow:hidden;border-right:1px solid #ccc;}*/
@@ -16,8 +22,7 @@ h2{margin:0px !important}
    padding:10px;
    border:1px solid #A3821F;
    color:#fff;
-   font-weight:bold;
-   background-color: #D9A509;
+   background-color: #070321;
   //  background: url(img_flwr.gif);
    // background-size: 80px 60px;
    // background-repeat: no-repeat;
@@ -25,6 +30,8 @@ h2{margin:0px !important}
 	
 }
 div.dynamic_div{
+    opacity: 0.87;
+    background-color: #3190b0;
 margin-left: auto; margin-right: auto; width: 70%;  border:1px solid #ccc;padding:20px; 
 display: none;
 }
@@ -58,4 +65,20 @@ margin-left: auto; margin-right: auto; width: 50%;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
 	filter: alpha(opacity=90);
 	opacity: 0.9;
+}
+
+.pure-menu.pure-menu-horizontal, .pure-menu.pure-menu-horizontal .pure-menu-heading {
+background: none repeat scroll 0 0 !important;
+}
+
+.pure-menu a, .pure-menu .pure-menu-can-have-children > li:after {
+    color: #777;
+}
+
+.pure-menu li a:hover, .pure-menu li a:focus {
+    background: none repeat scroll 0 0 #02274f !important;
+}
+
+.pure-menu a, .pure-menu .pure-menu-can-have-children > li:after {
+    color: #FFF !important;
 }
