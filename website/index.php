@@ -5,37 +5,42 @@
 	<title>Air force </title>
 	<link rel="stylesheet" type="text/css" href="vendor/jquery-ui/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" type="text/css" href="css/pure-min.css">
+      
 </head>
 <body>
-<div id='header' style="background-color:#3190B0;line-height:75px;padding-left:15px;color:#fff">
-	<h2>Air Force Veterans Management System</h2>
-</div>	
-<div id='main'>
-	<div class="nav_button">
-	
-		<div class="column__button" data-correspondingDiv="diplay_circular_no" id="cirInfo">Circular Info</div>
-		<div class="column__button" data-correspondingDiv="diplay_employee_details" id="empDet">Employee Details</div>
-		<div class="column__button" data-correspondingDiv="search_circular_no" id="searchByCir">Search By Circular No</div>
-		<div class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Employee Id</div>
 
-	</div>
+      <div id='header' style="background-color:#3190B0;line-height:75px;padding-left:15px;color:#fff">
+      <h2>Air Force Veterans Pension Management System</h2>
+      </div>
+
+      <div id="wrapper">
+      <div class="pure-menu pure-menu-open pure-menu-horizontal">
+          <ul>
+              <li><a href="#" class="column__button" data-correspondingDiv="diplay_circular_no" id="cirInfo">Circular Info</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="diplay_employee_details" id="empDet">Employee Details</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="search_circular_no" id="searchByCir">Search By Circular No</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Employee Id</a></li>
+
+          </ul>
+      </div>
 	<br/><br/>		
 	<div id="display_show_hide">
 		
 		<div id="diplay_circular_no" class="dynamic_div">
 			<div class="data_table">
-				<form id="form_diplay_circular_no">
+				<form id="form_diplay_circular_no" class="pure-form">
 					<div class="input_pair">
 						<div><label class="">Circular Number</label></div>
 						<div><input name="circularNo" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Rank</label></div>
-						<div><input name="rank" class="" type="text"></div>
+						<div><select name="rank"></select></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Group</label></div>
-						<div><input name="group" class="" type="text"></div>
+						<div><select name="group"></select></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Issue Date</label></div>
@@ -55,11 +60,15 @@
 					</div>
 					<div class="input_pair">
 						<div><label class="">Service Period</label></div>
-						<div><input name="service_period" class="" type="text"></div>
+						<div><input name="service_period" class="" type="text"> Years</div>
 					</div>		
 					<div>
 						<div>Type</div>
-						<div><select name="service_type"><option>Type</option></select></div>
+							<div><select name="service_type">
+								<option value='1'>Retiring Pension</option>
+								<option value='2'>Family Pension</option>
+							</select>
+						</div>
 					</div>	
 				</form>	
 			</div>
@@ -167,7 +176,7 @@
 					</div>
 					<div class="input_pair">
 						<div><label class="">Group</label></div>
-						<div><input name="group" class="" type="text"></div>
+						<div><select name="group"></select></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Service Type</label></div>
@@ -187,11 +196,11 @@
 				<form id="form_search_employee_id">
 					<div class="input_pair">
 						<div><label class="">Service Number</label></div>
-						<div><input name="" class="" type="text"></div>
+						<div><input name="serviceno" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Membership Number</label></div>
-						<div><select><option>1</option></select></div>
+						<div><input name="memberno" class="" type="text"></div>
 					</div>
 				</form>
 			</div>
@@ -315,8 +324,35 @@ function create_table(fDiv, recordsArr) {
 			$("#"+fDiv).find(".show_records > .show_records_body").append(bodyRow);
 		});
 	}
-	else if(fDiv == 'search_circular_no') {
-		
+	else if(fDiv == 'search_employee_id') {
+		var headerRow = "";
+		headerRow += "<div data-celltype='first_name' class='header_cell'> First Name </div>";
+		headerRow += "<div data-celltype='last_name' class='header_cell'> Last Name </div>";
+		headerRow += "<div data-celltype='service_no' class='header_cell'> Service Number </div>";
+		headerRow += "<div data-celltype='membership_no' class='header_cell'> Membership Number </div>";
+		headerRow += "<div data-celltype='email' class='header_cell'> E-mail </div>";
+		headerRow += "<div data-celltype='amount' class='header_cell'> Amount </div>";
+		headerRow += "<div data-celltype='service_type' class='header_cell'> Service Type </div>";
+
+		$("#"+fDiv+" .show_records_head").append(headerRow);
+
+		$.each(recordsArr, function(i,val) {
+			var bodyRow = "";
+			bodyRow += "<div data-celltype='first_name' class='record_cell'>"+val['first_name']+"</div>";
+
+			bodyRow += "<div data-celltype='last_name' class='record_cell'>"+val['last_name']+"</div>";
+
+			bodyRow += "<div data-celltype='service_no' class='record_cell'>"+val['service_no']+"</div>";
+
+			bodyRow += "<div data-celltype='membership_no' class='record_cell'>"+val['membership_no']+"</div>";
+			bodyRow += "<div data-celltype='email' class='record_cell'>"+val['email']+"</div>";
+			bodyRow += "<div data-celltype='amount' class='record_cell'>"+val['amount']+"</div>";
+			bodyRow += "<div data-celltype='rank' class='record_cell'>"+val['rank']+"</div>";
+			bodyRow += "<div data-celltype='group' class='record_cell'>"+val['group']+"</div>";
+			bodyRow += "<div data-celltype='service_type' class='record_cell'>"+val['service_type']+"</div>";
+			
+			$("#"+fDiv).find(".show_records > .show_records_body").append(bodyRow);
+		});
 	}
 
 }
@@ -339,19 +375,23 @@ $(document).ready(function() {
 
 	$(".dateField").datepicker({			// jQuery-ui datepicker
 		numberOfMonths: 3,
-		dateFormat : "yy:mm:dd",
+		dateFormat : "yy-mm-dd",
 	});
 
 	// get ranks
 	$.ajax({
-		url : moduleBackendFolderPath+"action.get_rank.php",
+		url : moduleBackendFolderPath+"action.get_rank_group.php",
 		dataType : "JSON",
 
 		success : function(response) {
-			// console.log(response);
-			$.each(response, function(i,val) {
-				// console.log(val);
+			var ranks = response['ranks'];
+			var groups = response['groups'];
+
+			$.each(ranks, function(i,val) {
 				$('select[name=rank]').append($("<option></option>").attr("value",val).text(val));
+			});
+			$.each(groups, function(i,val) {
+				$('select[name=group]').append($("<option></option>").attr("value",i).text(val));
 			});
 		}
 	});
@@ -376,6 +416,6 @@ $(document).ready(function() {
 	});
 });
 </script>
-
+</div>
 </body>
 </html>

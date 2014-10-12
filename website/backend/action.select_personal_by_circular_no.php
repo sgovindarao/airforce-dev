@@ -94,8 +94,7 @@ require_once "vars/dbvars.php";
 			);
 		}
 	
-	$sendValues = json_encode($sendArr);
-	echo json_encode(array('status' => 1, 'details'=> $sendValues));
+	echo json_encode(array('status' => 1, 'details'=> $sendArr));
 	$mysqli->close();	
 	}
 	catch(Exception $error)
