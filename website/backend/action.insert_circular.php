@@ -63,6 +63,8 @@ try {
 	}
 
 	echo json_encode(array('status'=>1));
+
+	mysqli_close($mysqliConn);
 }
 catch(Exception $error)
 {
