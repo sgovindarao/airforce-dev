@@ -4,13 +4,13 @@
 *  @return status as 0 in case of failure
 **/
 // Comment below two lines to hide errors
-ini_set("display_errors", "1");
-error_reporting(E_ALL);
+/*ini_set("display_errors", "1");
+error_reporting(E_ALL);*/
 // ---
 
 
-$serviceno=(!empty($_GET['serviceno']) ? trim($_GET['serviceno']) : "");
-$memberno=(!empty($_GET['memberno']) ? trim($_GET['memberno']) : "");
+$serviceno=(!empty($_POST['serviceno']) ? trim($_POST['serviceno']) : "");
+$memberno=(!empty($_POST['memberno']) ? trim($_POST['memberno']) : "");
 
 require_once "vars/dbvars.php";
 
@@ -24,7 +24,6 @@ require_once "vars/dbvars.php";
     	throw new Exception(mysqli_connect_error(), 1);
     	}
     	
-
 		$query_search_personal_by_employee_id = "select first_name,last_name,service_no,membership_no,email,amount,rank,group_name,service_type from afpms_circular_info_all_view, afpms_personal_info_all_view where afpms_circular_info_all_view.CategorizationID =afpms_personal_info_all_view.CategorizationID ";
 
 		if (!empty($serviceno )) {
@@ -71,9 +70,8 @@ require_once "vars/dbvars.php";
 			'service_type' => $row['service_type'],
 			);
 		}
-	
-	$sendValues = json_encode($sendArr);
-	echo json_encode(array('status' => 1, 'details'=> $sendValues));
+
+	echo json_encode(array('status' => 1, 'details'=> $sendArr));
 	$mysqli->close();		
 	}
 	catch(Exception $error)
