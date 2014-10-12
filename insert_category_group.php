@@ -23,7 +23,7 @@ try
         foreach($group_id_array as $group_id) {
              foreach($rank_array as $rank) {
                 foreach($service_period_array as $service_period) {
-                    $query_afms_circular_categorization_info = "INSERT INTO afpms_circular_categorization_info ( `rank`, `group_id`, `service_period`, `service_type`) VALUES ($rank,$group_id,$service_period,$service_type)";
+                    $query_afms_circular_categorization_info = "INSERT INTO afpms_circular_categorization_info ( `rank`, `group_id`, `service_period`, `service_type`) VALUES ('$rank','$group_id','$service_period','$service_type')";
                     $mysqli->query($query_afms_circular_categorization_info);
 					printf($query_afms_circular_categorization_info);
                 }
