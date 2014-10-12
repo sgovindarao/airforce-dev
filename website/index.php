@@ -5,20 +5,25 @@
 	<title>Air force </title>
 	<link rel="stylesheet" type="text/css" href="vendor/jquery-ui/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="css/global.css">
+	<link rel="stylesheet" type="text/css" href="css/pure-min.css">
+      
 </head>
 <body>
-<div id='header' style="background-color:#3190B0;line-height:75px;padding-left:15px;color:#fff">
-	<h2>Air Force Veterans Management System</h2>
-</div>	
-<div id='main'>
-	<div class="nav_button">
-	
-		<div class="column__button" data-correspondingDiv="diplay_circular_no" id="cirInfo">Circular Info</div>
-		<div class="column__button" data-correspondingDiv="diplay_employee_details" id="empDet">Employee Details</div>
-		<div class="column__button" data-correspondingDiv="search_circular_no" id="searchByCir">Search By Circular No</div>
-		<div class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Employee Id</div>
 
-	</div>
+      <div id='header' style="background-color:#3190B0;line-height:75px;padding-left:15px;color:#fff">
+      <h2>Air Force Veterans Management System</h2>
+      </div>
+
+      <div id="wrapper">
+      <div class="pure-menu pure-menu-open pure-menu-horizontal">
+          <ul>
+              <li><a href="#" class="column__button" data-correspondingDiv="diplay_circular_no" id="cirInfo">Circular Info</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="diplay_employee_details" id="empDet">Employee Details</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="search_circular_no" id="searchByCir">Search By Circular No</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Employee Id</a></li>
+
+          </ul>
+      </div>
 	<br/><br/>		
 	<div id="display_show_hide">
 		
@@ -376,6 +381,6 @@ $(document).ready(function() {
 	});
 });
 </script>
-
+</div>
 </body>
 </html>
