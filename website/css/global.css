@@ -85,3 +85,13 @@ background: none repeat scroll 0 0 !important;
 .button-success {
     background: rgb(223, 117, 20) !important; /* this is a green */
 }
+
+.input_pair  div.label {width:400px; color:red}
+
+.pure-form label {
+    margin: 0.5em 2em 0.2em !important;
+}
+
+.pure-button{margin: 20px;}
+
+.pure-form input[type="text"], .pure-form select {margin-top:10px}
