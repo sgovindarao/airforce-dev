@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2014 at 10:30 PM
+-- Generation Time: Oct 12, 2014 at 04:31 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `afpms_circular_categorization_info` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `rank` (`rank`,`group_id`,`service_period`,`service_type`),
   UNIQUE KEY `rank_2` (`rank`,`group_id`,`service_period`,`service_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `afpms_circular_categorization_info`
@@ -153,9 +153,47 @@ CREATE TABLE IF NOT EXISTS `afpms_circular_info_all_view` (
 ,`rank` varchar(20)
 ,`group_id` int(10)
 ,`service_period` float unsigned
-,`service_type` varchar(10)
+,`service_type` enum('1','2')
 ,`group_name` varchar(49)
 );
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `afpms_circular_rank_info`
+--
+
+CREATE TABLE IF NOT EXISTS `afpms_circular_rank_info` (
+  `rank_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `rank` varchar(20) NOT NULL,
+  PRIMARY KEY (`rank_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+
+--
+-- Dumping data for table `afpms_circular_rank_info`
+--
+
+INSERT INTO `afpms_circular_rank_info` (`rank_id`, `rank`) VALUES
+(1, 'AIR MSHL'),
+(2, 'AVM'),
+(3, 'AIR CMDE'),
+(4, 'GP CAPT'),
+(5, 'WG CDR'),
+(6, 'SQL LDR'),
+(7, 'FLT LT'),
+(8, 'FG OFFR'),
+(9, 'PLT OFFR'),
+(10, 'HFL'),
+(11, 'HFO'),
+(12, 'MWO'),
+(13, 'WO'),
+(14, 'JWO'),
+(15, 'SGT'),
+(16, 'CPL'),
+(17, 'LAC'),
+(18, 'AC'),
+(19, 'AC II'),
+(20, 'NC(E)');
+
 -- --------------------------------------------------------
 
 --
@@ -288,7 +326,7 @@ INSERT INTO `afpms_personal_service_info` (`id`, `afpms_personal_info_id`, `afpm
 --
 DROP TABLE IF EXISTS `afpms_circular_info_all_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `afpms_circular_info_all_view` AS select `a`.`afpms_circular_info_id` AS `CircularID`,`a`.`afpms_circular_categorization_info_id` AS `CategorizationID`,`b`.`circular_no` AS `circular_no`,`b`.`circular_issue_date` AS `circular_issue_date`,`b`.`circular_effective_date` AS `circular_effective_date`,`a`.`amount` AS `amount`,`b`.`circular_status` AS `circular_status`,`c`.`rank` AS `rank`,`c`.`group_id` AS `group_id`,`c`.`service_period` AS `service_period`,elt(`c`.`service_type`,'Retirement','Family') AS `service_type`,`d`.`group_name` AS `group_name` from (((`afpms_circular_amount_info` `a` join `afpms_circular_info` `b`) join `afpms_circular_categorization_info` `c`) join `afpms_circular_group_info` `d`) where ((`a`.`afpms_circular_info_id` = `b`.`id`) and (`a`.`afpms_circular_categorization_info_id` = `c`.`id`) and (`c`.`group_id` = `d`.`id`));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `afpms_circular_info_all_view` AS select `a`.`afpms_circular_info_id` AS `CircularID`,`a`.`afpms_circular_categorization_info_id` AS `CategorizationID`,`b`.`circular_no` AS `circular_no`,`b`.`circular_issue_date` AS `circular_issue_date`,`b`.`circular_effective_date` AS `circular_effective_date`,`a`.`amount` AS `amount`,`b`.`circular_status` AS `circular_status`,`c`.`rank` AS `rank`,`c`.`group_id` AS `group_id`,`c`.`service_period` AS `service_period`,`c`.`service_type` AS `service_type`,`d`.`group_name` AS `group_name` from (((`afpms_circular_amount_info` `a` join `afpms_circular_info` `b`) join `afpms_circular_categorization_info` `c`) join `afpms_circular_group_info` `d`) where ((`a`.`afpms_circular_info_id` = `b`.`id`) and (`a`.`afpms_circular_categorization_info_id` = `c`.`id`) and (`c`.`group_id` = `d`.`id`));
 
 -- --------------------------------------------------------
 
