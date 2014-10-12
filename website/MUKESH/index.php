@@ -17,30 +17,30 @@
       <div id="wrapper">
       <div class="pure-menu pure-menu-open pure-menu-horizontal">
           <ul>
-              <li><a href="#" class="column__button" data-correspondingDiv="send_circular_no" id="cirInfo">Enter Circular Info</a></li>
-              <li><a href="#" class="column__button" data-correspondingDiv="send_employee_details" id="empDet">Enter Veteran Details</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="diplay_circular_no" id="cirInfo">Circular Info</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="diplay_employee_details" id="empDet">Employee Details</a></li>
               <li><a href="#" class="column__button" data-correspondingDiv="search_circular_no" id="searchByCir">Search By Circular No</a></li>
-              <li><a href="#" class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Veteran Id</a></li>
+              <li><a href="#" class="column__button" data-correspondingDiv="search_employee_id" id="searchByEmp">Search By Employee Id</a></li>
 
           </ul>
       </div>
 	<br/><br/>		
 	<div id="display_show_hide">
 		
-		<div id="send_circular_no" class="dynamic_div">
+		<div id="diplay_circular_no" class="dynamic_div">
 			<div class="data_table">
-				<form id="form_send_circular_no" class="pure-form">
+				<form id="form_diplay_circular_no" class="pure-form">
 					<div class="input_pair">
 						<div><label class="">Circular Number</label></div>
 						<div><input name="circularNo" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Rank</label></div>
-						<div><select name="rank"></select></div>
+						<div><input name="rank" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Group</label></div>
-						<div><select name="group"></select></div>
+						<div><input name="group" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Issue Date</label></div>
@@ -60,132 +60,103 @@
 					</div>
 					<div class="input_pair">
 						<div><label class="">Service Period</label></div>
-						<div><input name="service_period" class="" type="text"> Years</div>
+						<div><input name="service_period" class="" type="text"></div>
 					</div>		
 					<div>
 						<div>Type</div>
-							<div><select name="service_type">
-								<option value='1'>Retiring Pension</option>
-								<option value='2'>Family Pension</option>
-							</select>
-						</div>
+						<div><select name="service_type"><option>Type</option></select></div>
 					</div>	
 				</form>	
 			</div>
-			<div class="submit_button" data-parentId="send_circular_no">Submit</div>
+			<div class="submit_button" data-parentId="diplay_circular_no">Submit</div>
 		</div>
 		
-		<div id="send_employee_details" class="dynamic_div">
+		<div id="diplay_employee_details" class="dynamic_div">
 			<div class="data_table">
-				<form id="form_send_employee_details">
+				<form id="form_diplay_employee_details">
 					<div class="input_pair">
 						<div><label class="">First Name</label></div>
-						<div><input name="fname" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Last Name</label></div>
-						<div><input name="lname" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Service Number</label></div>
-						<div><input name="serviceno" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Membership Number</label></div>
-						<div><input name="membershipno" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Address 1</label></div>
-						<div><input name="address1" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Address 2</label></div>
-						<div><input name="address2" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Street</label></div>
-						<div><input name="street" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">City</label></div>
-						<div><input name="city" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>		
 					<div class="input_pair">
 						<div><label class="">State</label></div>
-						<div><input name="state" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>	
 					<div class="input_pair">
 						<div><label class="">Pin Code</label></div>
-						<div><input name="pincode" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>	
 					<div class="input_pair">
-						<div><label class="">Mobile Number</label></div>
-						<div><input name="mobile" class="" type="text"></div>
+						<div><label class="">Mobile</label></div>
+						<div><input name="" class="" type="text"></div>
 					</div>	
-
 					<div class="input_pair">
-						<div><label class="">Office Phone Number</label></div>
-						<div><input name="ofcode" class="" type="text" placeholder="Code"></div>
-						<div><input name="ofcphone" class="" type="text" placeholder="Number"></div>
+						<div><label class="">Office Phone</label></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
-
 					<div class="input_pair">
-						<div><label class="">Residential Phone Number</label></div>
-						<div><input name="rescode" class="" type="text" placeholder="Code"></div>
-						<div><input name="resphone" class="" type="text" placeholder="Number"></div>
-					</div>
-		
+						<div><label class="">Residential Phone</label></div>
+						<div><input name="" class="" type="text"></div>
+					</div>		
 					<div class="input_pair">
 						<div><label class="">Email Id</label></div>
-						<div><input name="email" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>	
 					<div class="input_pair">
 						<div><label class="">Trade</label></div>
-						<div><input name="trade" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>	
 					<div class="input_pair">
 						<div><label class="">Date of Birth</label></div>
-						<div><input name="dobirth" class="dateField" type="text"></div>
+						<div><input name="" class="dateField" type="text"></div>
 					</div>	
-
-					<div class="input_pair">
-						<div><label class="">Date of Enrollment</label></div>
-						<div><input name="doenroll" class="dateField" type="text"></div>
-					</div>	
-
-					<div class="input_pair">
-						<div><label class="">Date of Discharge</label></div>
-						<div><input name="dodischarge" class="dateField" type="text"></div>
-					</div>	
-
-					<div class="input_pair">
-						<div><label class="">Awards</label></div>
-						<div><input name="awards" class="" type="text"></div>
-					</div>	
-
-					<div class="input_pair">
-						<div><label class="">Tamil Nadu Membership No</label></div>
-						<div><input name="tnmemno" class="" type="text"></div>
-					</div>
-
 					<div class="input_pair">
 						<div><label class="">Date of Expiry</label></div>
-						<div><input name="doexpire" class="dateField" type="text"></div>
+						<div><input name="" class="dateField" type="text"></div>
 					</div>	
-
-
 					<div class="input_pair">
-						<div><label class="">Rank</label></div>
-						<div><select name="rank"></select></div>
-					</div>
+						<div><label class="">Date of Enrollment</label></div>
+						<div><input name="" class="dateField" type="text"></div>
+					</div>	
 					<div class="input_pair">
-						<div><label class="">Group</label></div>
-						<div><select name="group"></select></div>
+						<div><label class="">Awards</label></div>
+						<div><input name="" class="" type="text"></div>
+					</div>	
+					<div class="input_pair">
+						<div><label class="">TN-Membership No</label></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
-
 				</form>
 			</div>
-			<div class="submit_button" data-parentId="send_employee_details">Submit</div>
+			<div class="submit_button" data-parentId="diplay_employee_details">Submit</div>
 		</div>	
 		
 		<div id="search_circular_no" class="dynamic_div">
@@ -201,7 +172,7 @@
 					</div>
 					<div class="input_pair">
 						<div><label class="">Group</label></div>
-						<div><select name="group"></select></div>
+						<div><input name="group" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Service Type</label></div>
@@ -221,11 +192,11 @@
 				<form id="form_search_employee_id">
 					<div class="input_pair">
 						<div><label class="">Service Number</label></div>
-						<div><input name="serviceno" class="" type="text"></div>
+						<div><input name="" class="" type="text"></div>
 					</div>
 					<div class="input_pair">
 						<div><label class="">Membership Number</label></div>
-						<div><input name="memberno" class="" type="text"></div>
+						<div><select><option>1</option></select></div>
 					</div>
 				</form>
 			</div>
@@ -265,7 +236,7 @@ var moduleFrontendFolderPath  = afpmsFolderPath+moduleFrontendFolder+"/";
 FUNCTION DEFINATIONS
 ======================================================*/
 function handle_callerBtn(divToHanlde) {
-	if(divToHanlde == "send_circular_no" || divToHanlde == "send_employee_details") {
+	if(divToHanlde == "diplay_circular_no" || divToHanlde == "diplay_employee_details") {
 
 	}
 	else if(divToHanlde == "search_circular_no" || divToHanlde == "search_employee_id") {
@@ -308,7 +279,7 @@ function send_vals(fDiv, phpFile) {
 }
 
 function handle_success(fDiv, response) {
-	if(fDiv == 'send_circular_no' || fDiv == 'send_employee_details') {
+	if(fDiv == 'diplay_circular_no' || fDiv == 'diplay_employee_details') {
 		// blur div and append overlay informing status 
 		var appendOverlay = "<div class='localized_overlay' id='ol_"+fDiv+"'>"+response['status']+"</div>";
 		$("#"+fDiv).append(appendOverlay);
@@ -349,35 +320,8 @@ function create_table(fDiv, recordsArr) {
 			$("#"+fDiv).find(".show_records > .show_records_body").append(bodyRow);
 		});
 	}
-	else if(fDiv == 'search_employee_id') {
-		var headerRow = "";
-		headerRow += "<div data-celltype='first_name' class='header_cell'> First Name </div>";
-		headerRow += "<div data-celltype='last_name' class='header_cell'> Last Name </div>";
-		headerRow += "<div data-celltype='service_no' class='header_cell'> Service Number </div>";
-		headerRow += "<div data-celltype='membership_no' class='header_cell'> Membership Number </div>";
-		headerRow += "<div data-celltype='email' class='header_cell'> E-mail </div>";
-		headerRow += "<div data-celltype='amount' class='header_cell'> Amount </div>";
-		headerRow += "<div data-celltype='service_type' class='header_cell'> Service Type </div>";
-
-		$("#"+fDiv+" .show_records_head").append(headerRow);
-
-		$.each(recordsArr, function(i,val) {
-			var bodyRow = "";
-			bodyRow += "<div data-celltype='first_name' class='record_cell'>"+val['first_name']+"</div>";
-
-			bodyRow += "<div data-celltype='last_name' class='record_cell'>"+val['last_name']+"</div>";
-
-			bodyRow += "<div data-celltype='service_no' class='record_cell'>"+val['service_no']+"</div>";
-
-			bodyRow += "<div data-celltype='membership_no' class='record_cell'>"+val['membership_no']+"</div>";
-			bodyRow += "<div data-celltype='email' class='record_cell'>"+val['email']+"</div>";
-			bodyRow += "<div data-celltype='amount' class='record_cell'>"+val['amount']+"</div>";
-			bodyRow += "<div data-celltype='rank' class='record_cell'>"+val['rank']+"</div>";
-			bodyRow += "<div data-celltype='group' class='record_cell'>"+val['group']+"</div>";
-			bodyRow += "<div data-celltype='service_type' class='record_cell'>"+val['service_type']+"</div>";
-			
-			$("#"+fDiv).find(".show_records > .show_records_body").append(bodyRow);
-		});
+	else if(fDiv == 'search_circular_no') {
+		
 	}
 
 }
@@ -400,34 +344,30 @@ $(document).ready(function() {
 
 	$(".dateField").datepicker({			// jQuery-ui datepicker
 		numberOfMonths: 3,
-		dateFormat : "yy-mm-dd",
+		dateFormat : "yy:mm:dd",
 	});
 
 	// get ranks
 	$.ajax({
-		url : moduleBackendFolderPath+"action.get_rank_group.php",
+		url : moduleBackendFolderPath+"action.get_rank.php",
 		dataType : "JSON",
 
 		success : function(response) {
-			var ranks = response['ranks'];
-			var groups = response['groups'];
-
-			$.each(ranks, function(i,val) {
+			// console.log(response);
+			$.each(response, function(i,val) {
+				// console.log(val);
 				$('select[name=rank]').append($("<option></option>").attr("value",val).text(val));
-			});
-			$.each(groups, function(i,val) {
-				$('select[name=group]').append($("<option></option>").attr("value",i).text(val));
 			});
 		}
 	});
 
 	$(".submit_button").click(function() {		// get parentDiv id and run funtion to send values
 		parentDivID = $(this).attr("data-parentId");
-		if(parentDivID=='send_circular_no') {
+		if(parentDivID=='diplay_circular_no') {
 			send_vals(parentDivID,"action.insert_circular.php");
 		}
-		else if(parentDivID=='send_employee_details') {
-			send_vals(parentDivID,"action.insert_veteran.php");
+		else if(parentDivID=='diplay_employee_details') {
+			// send_vals(parentDivID,"action.insert_circular.php");
 		}
 		else if(parentDivID=='search_circular_no') {
 			send_vals(parentDivID,"action.select_personal_by_circular_no.php");
