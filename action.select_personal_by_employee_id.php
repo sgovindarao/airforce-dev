@@ -34,11 +34,6 @@ require_once "vars/dbvars.php";
 			$query_search_personal_by_employee_id = $query_search_personal_by_employee_id . "and membership_no = '$memberno'";
 		}
 
-		
-		
-		$mysqli->query($query_search_personal_by_employee_id);
-
-		
 		if(!$res_search_personal_by_employee_id = $mysqli->query($query_search_personal_by_employee_id)) {
 			throw new Exception(mysqli_error($mysqli), 2);
 		}

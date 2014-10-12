@@ -26,7 +26,20 @@ require_once "vars/dbvars.php";
     	throw new Exception(mysqli_connect_error(), 1);
     	}
     	
+        $query_search_circular_rank_info_by_id = "select rank from afpms_circular_rank_info where rank_id='$rank'";
+        
+        if(!$res_search_circular_rank_info_by_id = $mysqli->query($query_search_circular_rank_info_by_id)) {
+			throw new Exception(mysqli_error($mysqli), 2);
+		}
 
+		if(mysqli_num_rows($res_search_circular_rank_info_by_id)==0) {
+			throw new Exception(0, 3);
+		}
+        
+        if($row = $res_search_circular_rank_info_by_id->fetch_assoc()) {            
+			$rank = $row['rank'];
+		}
+        		
 		$query_search_personal_info_by_cir_id = "select first_name,last_name,service_no,membership_no,email,amount,rank,group_name,service_type from afpms_circular_info_all_view, afpms_personal_info_all_view where afpms_circular_info_all_view.CategorizationID =afpms_personal_info_all_view.CategorizationID and afpms_circular_info_all_view.circular_no='$circularNo'";
 
 		if (!empty($rank )) {
@@ -40,10 +53,8 @@ require_once "vars/dbvars.php";
 			$query_search_personal_info_by_cir_id = $query_search_personal_info_by_cir_id . "and service_type = '$service_type'";
 		}
 
-		
-		$mysqli->query($query_search_personal_info_by_cir_id);
-
-		
+        //echo $query_search_personal_info_by_cir_id;
+                
 		if(!$res_search_personal_info_by_cir_id = $mysqli->query($query_search_personal_info_by_cir_id)) {
 			throw new Exception(mysqli_error($mysqli), 2);
 		}
@@ -98,7 +109,6 @@ require_once "vars/dbvars.php";
 		if($error->getCode() == 3) {
 			echo json_encode(array('status' => 0, 'usrErr'=> 'No results found', 'msg'=>$error->getMessage()));
 		}
-		
 		$mysqli->close();
 
 	}
