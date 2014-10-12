@@ -13,8 +13,6 @@
       <div id='header' style="background-color:#3190B0;line-height:75px;padding-left:15px;color:#fff">
       <h2>Air Force Veterans Pension Management System</h2>
       </div>
-
-      <div id="wrapper">
       <div class="pure-menu pure-menu-open pure-menu-horizontal">
           <ul>
               <li><a href="#" class="column__button" data-correspondingDiv="send_circular_no" id="cirInfo">Enter Circular Info</a></li>
@@ -24,6 +22,9 @@
 
           </ul>
       </div>
+
+      <div id="wrapper">
+
 	<br/><br/>		
 	<div id="display_show_hide">
 		
@@ -62,8 +63,8 @@
 						<div><label class="">Service Period</label></div>
 						<div><input name="service_period" class="" type="text"> Years</div>
 					</div>		
-					<div>
-						<div>Type</div>
+                                        <div class="input_pair">
+						<div><label class="">Type</label></div>
 							<div><select name="service_type">
 								<option value='1'>Retiring Pension</option>
 								<option value='2'>Family Pension</option>
@@ -72,12 +73,12 @@
 					</div>	
 				</form>	
 			</div>
-			<div class="submit_button" data-parentId="send_circular_no">Submit</div>
+			<button class=" pure-button button-success" data-parentId="send_circular_no">Submit</button>
 		</div>
 		
 		<div id="send_employee_details" class="dynamic_div">
 			<div class="data_table">
-				<form id="form_send_employee_details">
+				<form id="form_send_employee_details"  class="pure-form">
 					<div class="input_pair">
 						<div><label class="">First Name</label></div>
 						<div><input name="fname" class="" type="text"></div>
@@ -185,12 +186,12 @@
 
 				</form>
 			</div>
-			<div class="submit_button" data-parentId="send_employee_details">Submit</div>
+			<button class=" pure-button button-success" data-parentId="send_employee_details">Submit</button>
 		</div>	
 		
 		<div id="search_circular_no" class="dynamic_div">
 			<div class="data_table">
-				<form id="form_search_circular_no">
+				<form id="form_search_circular_no"  class="pure-form">
 					<div class="input_pair">
 						<div><label class="">Circular Number</label></div>
 						<div><input name="circularNo" class="" type="text"></div>
@@ -209,7 +210,7 @@
 					</div>
 				</form>		
 			</div>
-			<div class="submit_button" data-parentId="search_circular_no">Submit</div>
+			<button class=" pure-button button-success"  data-parentId="search_circular_no">Submit</button>
 			<div class="show_records">
 				<div class="show_records_head"></div>
 				<div class="show_records_body"></div>
@@ -218,7 +219,7 @@
 
 		<div id="search_employee_id" class="dynamic_div">
 			<div class="data_table">
-				<form id="form_search_employee_id">
+				<form id="form_search_employee_id"  class="pure-form">
 					<div class="input_pair">
 						<div><label class="">Service Number</label></div>
 						<div><input name="serviceno" class="" type="text"></div>
@@ -229,7 +230,7 @@
 					</div>
 				</form>
 			</div>
-			<div class="submit_button" data-parentId="search_employee_id">Submit</div>
+			<button class=" pure-button button-success"  data-parentId="search_employee_id">Submit</button>
 			<div class="show_records">
 				<div class="show_records_head"></div>
 				<div class="show_records_body"></div>
